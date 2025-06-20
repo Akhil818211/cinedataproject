@@ -136,7 +136,14 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# media url and root
+MEDIA_URL = '/media/'
+MEDIA_ROOT ='media'
+
+AUTH_USER_MODEL = 'authentication.Profile'

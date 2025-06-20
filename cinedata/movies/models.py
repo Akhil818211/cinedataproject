@@ -57,7 +57,7 @@ class Artist(BaseClass):
 
     proffession = models.CharField(max_length=50,choices=ProffessionChoices.choices)
 
-    def _str_(self):
+    def __str__(self):
 
         return f'{self.name}-{self.proffession}'
     
@@ -71,7 +71,7 @@ class Genre(BaseClass):
 
     name = models.CharField(max_length=20)
 
-    def _str_(self):
+    def __str__(self):
 
         return self.name
     
@@ -87,7 +87,7 @@ class Production(BaseClass):
 
     owner = models.ForeignKey('Artist',on_delete=models.CASCADE)
 
-    def _str_(self):
+    def __str__(self):
 
         return self.comp_name
     
@@ -105,6 +105,8 @@ class Movies(BaseClass):
 
     description = models.TextField()
 
+    run_time = models.TimeField()
+
     genre = models.ForeignKey('Genre',on_delete=models.CASCADE)
 
     industry = models.CharField(max_length=20,choices=IndustryChoices.choices)
@@ -119,7 +121,7 @@ class Movies(BaseClass):
 
     music_director = models.ForeignKey('Artist',on_delete=models.CASCADE,related_name='music_director')
 
-    def _str_(self):
+    def __str__(self):
 
         return f'{self.name}-{self.released_year}'
     
